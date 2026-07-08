@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Flow Batch Video + Image Generator",
+  "version": "1.9.17",
+  "description": "Base 1.9.14, agora em modo seguro um por um: envia o primeiro prompt marcado, desmarca quando dá certo e relê a lista para pegar o próximo.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "debugger"
+  ],
+  "host_permissions": [
+    "https://labs.google/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://labs.google/fx/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {}
+}
